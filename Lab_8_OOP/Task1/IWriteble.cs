@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab_8_OOP
+namespace Lab_8_OOP.Task1
 {
-    internal interface IWriteble
+    public interface IWriteble
     {
         public void Print();
     }

@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab_8_OOP
+namespace Lab_8_OOP.Task2
 {
-    internal class Product
+    internal interface IWarrior :IRole    // Воин
     {
+        int Damage { get; }
+
+
     }
 }

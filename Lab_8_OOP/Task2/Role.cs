@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab_8_OOP
+namespace Lab_8_OOP.Task2
 {
-    internal class Person
+    internal enum Role
     {
+        warrior,
+        arrcher,
+        mage
     }
 }
