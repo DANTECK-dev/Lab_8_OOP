@@ -12,13 +12,26 @@ namespace Lab_8_OOP.Task2
      *  Ловкость (Agility) – показатель, особенно важный для Лучника. 
      *  Сила (Strength) – показатель, особенно важный для Войн
      */
-    internal class Character
+    internal class Character : IArcher, IWarrior, IMage
     {
+        
         private int HP { get; set; }
         private int Intellect { get; set; }
         private int Agility { get; set; }
         private int Strength { get; set; }
         private Role Role { get; set; }
 
+        int IMage.Damage => throw new NotImplementedException();
+
+        int IWarrior.Damage => throw new NotImplementedException();
+
+        int IArcher.Damage => throw new NotImplementedException();
+
+        bool IRole.Alive => throw new NotImplementedException();
+
+        void IRole.getDamage(int damage)
+        {
+            this.HP -= damage;
+        }
     }
 }
