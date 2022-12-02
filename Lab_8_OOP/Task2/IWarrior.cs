@@ -8,8 +8,6 @@ namespace Lab_8_OOP.Task2
 {
     internal interface IWarrior : IRole    // Воин
     {
-        int Damage { get; }
-
-
+        new public int Damage { get; }
     }
 }

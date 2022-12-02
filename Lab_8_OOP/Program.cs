@@ -1,4 +1,5 @@
 ﻿using Lab_8_OOP.Task1;
+using Lab_8_OOP.Task2;
 
 namespace Lab_8_OOP
 {
@@ -34,10 +35,54 @@ namespace Lab_8_OOP
         }
         private static void Task2()
         {
+            Random rand = new();
+            List<Character> characters = new();
 
 
+            characters.Add(new Character(rand.Next(100, 500), rand.Next(1, 10), rand.Next(1, 10), rand.Next(1, 10)));
+            characters.Add(new Character(rand.Next(100, 500), rand.Next(1, 10), rand.Next(1, 10), rand.Next(1, 10)));
+
+            Console.WriteLine();
+            for (int i = 0; i < characters.Count; i++)
+                Console.WriteLine(characters[i].ToString());
+            Console.WriteLine();
+
+            int select1;
+            int select2;
+            do
+            {
+                Console.WriteLine("0 - warrior, 1 - arrcher, 2 - mage");
+                select1 = ReadInt();
+            } while (!(select1 >= 0 && select1 <= 2));
+
+            do
+            {
+                Console.WriteLine("0 - warrior, 1 - arrcher, 2 - mage");
+                select2 = ReadInt();
+            } while (!(select2 >= 0 && select2 <= 2));
+
+            characters[0].Role = (Role)select1;
+            characters[1].Role = (Role)select2;
+
+            Console.WriteLine();
+            for (int i = 0; i < characters.Count; i++)
+                Console.WriteLine(characters[i].ToString());
+            Console.WriteLine();
+
+            IRole.Battle(characters[0], characters[0].Role, characters[1], characters[1].Role);
+            
             Console.ReadKey();
             return;
         }
+        public static int ReadInt()
+        {
+            string str;
+
+            do str = Console.ReadLine();
+            while (!int.TryParse(str, out _));
+
+            return int.Parse(str);
+        }
     }
 }
+

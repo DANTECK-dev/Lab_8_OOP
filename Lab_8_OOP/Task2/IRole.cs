@@ -8,18 +8,26 @@ namespace Lab_8_OOP.Task2
 {
     internal interface IRole
     {
-        int Damage { get => 1; }
+        public int Damage { get; }
         bool Alive { get; }
         void getDamage(int damage);
         static void Battle(IRole irole_1, Role role_1, IRole irole_2, Role role_2)
         {
-            if (role_1 == Role.arrcher) irole_1 = (IArcher)irole_1;
-            else if (role_1 == Role.mage) irole_1 = (IMage)irole_1;
-            else if (role_1 == Role.warrior) irole_1 = (IWarrior)irole_1;
 
-            if (role_2 == Role.arrcher) irole_2 = (IArcher)irole_2;
-            else if (role_2 == Role.mage) irole_2 = (IMage)irole_2;
-            else if (role_2 == Role.warrior) irole_2 = (IWarrior)irole_2;
+            do
+            {
+                Console.WriteLine("Первый игрок ");
+                irole_1.getDamage(irole_2.Damage);
+
+                Console.WriteLine("Второй игрок ");
+                irole_2.getDamage(irole_1.Damage);
+
+                Console.WriteLine();
+            } while (irole_1.Alive && irole_2.Alive);
+
+            if (irole_1.Alive) Console.WriteLine("Первый игрок победил");
+            else if (irole_2.Alive) Console.WriteLine("Второй игрок победил");
+            else Console.WriteLine("Все погибли");
         }
     }
 }

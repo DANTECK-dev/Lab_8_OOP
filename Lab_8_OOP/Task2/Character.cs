@@ -14,24 +14,49 @@ namespace Lab_8_OOP.Task2
      */
     internal class Character : IArcher, IWarrior, IMage
     {
-        
-        private int HP { get; set; }
-        private int Intellect { get; set; }
-        private int Agility { get; set; }
-        private int Strength { get; set; }
-        private Role Role { get; set; }
+        public int HP { get; private set; }
+        public int Intellect { get; private set; }
+        public int Agility { get; private set; }   // Ловкость
+        public int Strength { get; private set; }  // Сила
+        public Role Role { get; set; }
+        public Character(int hP, int intellect, int agility, int strength)
+        {
+            HP = hP;
+            Intellect = intellect;
+            Agility = agility;
+            Strength = strength;
+        }
+        int IMage.Damage => 3 * Intellect + 2 * Agility + 1 * Strength;
 
-        int IMage.Damage => throw new NotImplementedException();
+        int IWarrior.Damage => 1 * Intellect + 2 * Agility + 3 * Strength;
 
-        int IWarrior.Damage => throw new NotImplementedException();
+        int IArcher.Damage => 2 * Intellect + 3 * Agility + 1 * Strength;
 
-        int IArcher.Damage => throw new NotImplementedException();
+        bool IRole.Alive => HP > 0;
 
-        bool IRole.Alive => throw new NotImplementedException();
+        int IRole.Damage
+        {
+            get
+            {
+                if (this.Role == Role.warrior) return ((IWarrior)this).Damage;
+                if (this.Role == Role.arrcher) return ((IArcher)this).Damage;
+                if (this.Role == Role.mage) return ((IMage)this).Damage;
+                return 0;
+            }
+        }
 
         void IRole.getDamage(int damage)
         {
             this.HP -= damage;
+            Console.WriteLine("  Получил " + damage + " урона, осатвшееся хп " + HP);
+        }
+        public override string ToString()
+        {
+            return "Здоровье - " + HP
+                + " Интелект - " + Intellect
+                + " Ловкость - " + Agility
+                + " Сила - " + Strength
+                + " Роль - " + Role;
         }
     }
 }
