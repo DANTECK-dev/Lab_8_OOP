@@ -15,6 +15,7 @@ namespace Lab_8_OOP
             Person person = new Person("Иван", "Иванов", 35);
             Company company = new Company("JJJ FFF KKK", person, 1943);
             Product product = new Product("Bread", company, 56);
+
             List<IClonable> cloneables = new List<IClonable>();
             cloneables.Add(person);
             cloneables.Add(company);
@@ -23,6 +24,7 @@ namespace Lab_8_OOP
             List<IClonable> cloneables_2 = (List<IClonable>)IClonable.Clone(cloneables);
 
             cloneables.Add(person);
+            ((Person)cloneables_2[0]).FirstName = "hsdfksjfkewhf";
 
             for (int i = 0; i < cloneables.Count; i++)
                 ((IWriteble)cloneables[i]).Print();

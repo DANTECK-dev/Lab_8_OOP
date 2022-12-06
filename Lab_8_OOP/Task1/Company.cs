@@ -20,9 +20,6 @@ namespace Lab_8_OOP.Task1
         private int YearOfFoundation { get; set; }
 
         public object Clone() => MemberwiseClone();
-        //{
-        //    return new Company(Name, (Person)Person.Clone(), YearOfFoundation);
-        //}
 
         public void Print() => Console.WriteLine(ToString());
 

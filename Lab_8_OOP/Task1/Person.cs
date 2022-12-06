@@ -8,17 +8,16 @@ namespace Lab_8_OOP.Task1
 {
     internal class Person : IClonable, IWriteble    // данные о человеке: имя, фамилия, возраст.
     {
+        public string FirstName { get; set; }
+        private string LastName { get; set; }
+        private int Age { get; set; }
+
         public Person(string firstName, string lastName, int age)
         {
             FirstName = firstName;
             LastName = lastName;
             Age = age;
         }
-
-        private string FirstName { get; set; }
-        private string LastName { get; set; }
-        private int Age { get; set; }
-
         public object Clone() => MemberwiseClone();
         //{
         //    return new Person(FirstName, LastName, Age);

@@ -34,16 +34,16 @@ namespace Lab_8_OOP.Task2
 
         bool IRole.Alive => HP > 0;
 
-        int IRole.Damage
-        {
-            get
-            {
-                if (this.Role == Role.warrior) return ((IWarrior)this).Damage;
-                if (this.Role == Role.arrcher) return ((IArcher)this).Damage;
-                if (this.Role == Role.mage) return ((IMage)this).Damage;
-                return 0;
-            }
-        }
+        //int IRole.Damage
+        //{
+        //    get
+        //    {
+        //        if (this.Role == Role.warrior) return ((IWarrior)this).Damage;
+        //        if (this.Role == Role.arrcher) return ((IArcher)this).Damage;
+        //        if (this.Role == Role.mage) return ((IMage)this).Damage;
+        //        return 0;
+        //    }
+        //}
 
         void IRole.getDamage(int damage)
         {

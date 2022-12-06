@@ -20,9 +20,6 @@ namespace Lab_8_OOP.Task1
         private int Count { get; set; }
 
         public object Clone() => MemberwiseClone();
-        //{
-        //    return new Product(Name, (Company)Company.Clone(), Count);
-        //}
 
         public void Print() => Console.WriteLine(ToString());
 
